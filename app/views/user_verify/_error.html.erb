@@ -1,0 +1,9 @@
+<% if @employer.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @employer.errors.full_messages.each do |msg| %>
+        <h2><li><%= msg %></li></h2>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,53 @@
+<center>
+<h2>Update an Employer</h2>
+  <%= form_for :employer, :url => {:action => "update", :id => @employer.id}, :method => :PUT do |f| %>
+
+    <% if @employer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@employer.errors.count, "error") %> prohibited this from being saved:</h2>
+        <ul>
+          <% @employer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <%= f.label :dob %><br>
+      <%= f.date_select :dob %>
+    </p>
+
+    <p>
+      <%= f.label :gender %><br>
+      <%= f.select(:gender, options_for_select([['Male', 'M'], ['Female', 'F']]), {:prompt => 'Select Gender'})%>
+    </p>
+
+    <p>
+      <%= f.label :location %><br>
+      <%= f.text_field :location %>
+    </p>
+
+    <p>
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+  <%=link_to 'Home', root_path%>
+</center>
+

@@ -5,23 +5,47 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+This application uses Twilio trial account for sending token as text messages for registered mobile number.
+
+As its a trial account only A verified number only will get text messages.
+
+In order to get mobile number verified please visit below site
+
+https://www.twilio.com/user/account/phone-numbers/verified
+
+To login into twilio,
+
+username: sureshtest1379@gmail.com
+password: (sent in email)
+
+* Ruby version - 2.1.4p265
+* Rails version - 4.2.5.1
 
 * System dependencies
 
 * Configuration
+    Twilio account configuration:
+    Twilio needs twilio SID,AUTH_TOKEN, From phone number
 
 * Database creation
+    rake db:create
 
 * Database initialization
+    rake db:migrate
 
 * How to run the test suite
+    rspec
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
 
-* ...
+  Heroku
+
+
+  To run tests:
+
+    rspec spec
 
 
 Please feel free to use a different markup language if you do not plan to run

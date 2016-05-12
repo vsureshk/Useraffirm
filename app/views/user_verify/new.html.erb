@@ -1,4 +1,18 @@
+<center>
+<h2>Employer Register</h2>
 <%= form_for :employer, url: user_verify_create_path do |f| %>
+
+  <% if @employer.errors.any? %>
+    <div id="error_explanation">
+      <h2>Please correct below <%= pluralize(@employer.errors.count, "error") %>:</h2>
+      <ul>
+        <% @employer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -33,3 +47,7 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<%=link_to 'Home', root_path%>
+</center>
+

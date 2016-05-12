@@ -7,7 +7,10 @@ class CreateEmployers < ActiveRecord::Migration
       t.string :gender
       t.string :location
       t.string :phone_number
-      t.string :token
+      t.string :email_token
+      t.string :mobile_token
+      t.boolean :email_verified, default: false
+      t.boolean :mobile_verified, default: false
 
       t.timestamps null: false
     end

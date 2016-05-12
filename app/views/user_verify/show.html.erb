@@ -1,0 +1,21 @@
+<center>
+  <p>Hi <%=@employer.name.upcase%>,</p>
+    <%= render 'error'%>
+    <p>Your Email <b><%= @employer.email %></b> [<i><%= @employer.email_verified ? 'Verified' : 'Unverified' %></i>]</p>
+    <p>Please verify your Email</p>
+    <%= form_tag("/user_verify/#{@employer.id}/email_verify") do %>
+      <%=text_field_tag 'email'%>
+      <%= submit_tag 'Verify email' %>
+    <% end %>
+
+
+    <p>Your Mobile Number <b><%= @employer.phone_number %></b> [<i><%= @employer.mobile_verified ? 'Verified' : 'Unverified' %></i>]</p>
+    <p>Please verify your Mobile Number</p>
+    <%= form_tag("/user_verify/#{@employer.id}/mobile_verify") do %>
+      <%=text_field_tag 'phone'%>
+      <%= submit_tag 'Verify Mobile Number' %>
+    <% end %>
+
+  <p><%=link_to 'Home', user_verify_index_path%> | <%=link_to 'Register', new_user_verify_path%> | <%=link_to 'Edit', edit_user_verify_path%></p>
+</center>
+
