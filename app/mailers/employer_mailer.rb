@@ -14,10 +14,14 @@ class EmployerMailer < ApplicationMailer
 
     #Send Mobile token
     def send_mobile_token(employer)
-      phone = "+91#{employer.phone_number}"
-      @client = Twilio::REST::Client.new TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
-      message = @client.account.messages.create(:body => "Token - #{employer.mobile_token}",
-      :to => phone,
-      :from => TWILIO_PHONE_NUMBER)
+      begin
+        phone = "+91#{employer.phone_number}"
+        @client = Twilio::REST::Client.new TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+        message = @client.account.messages.create(:body => "Token - #{employer.mobile_token}",
+        :to => phone,
+        :from => TWILIO_PHONE_NUMBER)
+      rescue Twilio::REST::RequestError => e
+        puts e.message
+      end
     end
 end
