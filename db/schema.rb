@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160509122811) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "employers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -20,9 +23,12 @@ ActiveRecord::Schema.define(version: 20160509122811) do
     t.string   "gender"
     t.string   "location"
     t.string   "phone_number"
-    t.string   "token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "email_token"
+    t.string   "mobile_token"
+    t.boolean  "email_verified",  default: false
+    t.boolean  "mobile_verified", default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end
